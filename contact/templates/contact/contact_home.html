@@ -1,0 +1,23 @@
+{% extends "../baseGeneric.html" %}
+<!-- block -->
+{% block content %}
+	
+	<div class="jumbotron jumbotron-fluid">
+		<div class="container">
+		    <h1>Thank you for checking our site out!</h1>
+		 </div>
+	</div>
+	<div class="row">
+		<div class="col-xs-10 col-xs-offset-1">
+			<p class="lead">If there is a question about this site or any suggestions you would like to provide, please don't hesitate to contact us.</p>
+			<a href="#" data-target="#contactFormModal" data-toggle="modal"><button class="btn btn-primary">Contact Us</button></a>.
+		</div>
+	</div>
+
+	<!-- start modal windows -->
+  		{% include 'contact/includes/contactFormModal.html' %}
+  		{% include 'home/includes/modalConnect.html' %}
+
+
+{% endblock %}	
+

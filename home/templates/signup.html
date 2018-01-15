@@ -1,0 +1,14 @@
+
+{% load crispy_forms_tags %}
+
+
+<h1>SignUp</h1>
+	<form method='POST' action=''>{% csrf_token %}
+			{{ form|crispy }}
+
+			<input type='submit' value='SignUp' />
+			<input type="hidden" name="next" value= "{{ next }}"/>
+	</form>
+	<div>
+		{{username}}
+	</div>

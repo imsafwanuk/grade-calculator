@@ -1,0 +1,101 @@
+{% extends "../baseGeneric.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<br><br><br><br><br><br>
+{% if messages %}
+		<div class="row">
+			<div class="col-xs-6 col-xs-offset-3">	
+			    {% for message in messages %}
+			   		<p{% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}>{{ message }}</p>
+			    {% endfor %}
+			</div>
+		</div>
+{% endif %}
+<!-- <div class="col-xs-2 col-sm-offset-4"> -->
+<ol>
+	<li><a data-toggle="modal" data-target="#chagePasswordModal">Change Password</a></li>
+	<li><a href="{% url 'resetPassword' %}">Forgot Password</a></li>
+	<li><a data-toggle="modal" data-target="#deleteConfirmationModal">Deactivate Account</a></li>
+</ol>
+
+
+<!-- login modal -->
+		<div id="chagePasswordModal" class="modal fade" data-backdrop="static" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-dialog modal-sm" role="document">
+				<div class="modal-content">
+					<!-- modal header -->
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">Login</h4>
+					</div>
+					<!-- modal body -->
+					<div class="modal-body" id="loginBodyDiv">
+						<div class="container-fluid">
+							<div id="">
+								<form action="" method='POST'>{% csrf_token %}
+									{{changePasswordForm|crispy}}
+									<input type="submit" id="makeChanges" class="hidden" value='Login'/>
+								</form>
+							</div>
+						</div>
+					</div> <!-- .modal-body -->
+					<!-- modal footer -->
+					<div class="modal-footer" id="">
+						<div class="row">
+							<!-- for btns -->
+							<div class="col-xs-12">					
+								<label class="btn btn-primary formLabelBtn" name="formLogin" for="makeChanges">Make changes</label>
+								<button class="btn btn-secondary modalCancelBtn modalFormBtn" data-dismiss="modal">Cancel</button>
+							</div>	<!-- end btns -->
+						</div>	<!-- end row -->
+					</div>
+				</div>	<!-- .model-contnet -->
+			</div>	<!-- .modal-dialog -->
+		</div>	<!-- .modal -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- </div> -->
+<div id="deleteConfirmationModal" class="modal fade" data-backdrop="static" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog modal-sm" role="document">
+		<div class="modal-content">
+		<!-- modal header -->
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			</div>
+			<!-- modal body -->
+			<div class="modal-body">
+				<div class="container-fluid alert alert-warning">
+					<p>By deleting your account, all your information will be permanently removed.</p>
+					<p>Do you wish to delete your account?</p>
+				</div>
+				<div class="row">
+					<div class="col-xs-5">			
+						<button class="btn btn-primary" data-dismiss="modal">Don't delete</button>
+					</div>	<!-- end btns -->
+					<div class="col-xs-7">			
+						<a href="{% url 'deleteProfile' %}" style="color: white;"><button class="btn btn-danger">Delete my account</button></a>
+					</div>	<!-- end btns -->
+				</div>	<!-- end row -->
+			</div> <!-- .modal-body -->
+		</div>	<!-- .model-contnet -->
+	</div>	<!-- .modal-dialog -->
+</div>	<!-- .modal -->
+
+{% endblock %}	
+

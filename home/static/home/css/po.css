@@ -1,0 +1,360 @@
+/*in general*/
+.formLabelBtn{
+	height: 1.7em;
+	text-align: center; 
+	line-height: 11px;
+	/*display: inline-block;*/
+}
+
+/*body*/
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+
+/*navbar*/
+/*login button*/
+
+
+#fbLoginWarningDiv{
+	display: none;
+}
+
+@media (max-width: 900px){
+   #loginBtn {
+        margin-left : 1em;
+    }
+}
+
+/*logout button*/
+
+@media (min-width: 500px){
+    #logoutBtn {
+        margin-right : 1em;
+    }
+}
+
+/*rightMostNavBtn button*/
+/*puts padding on logout and signup btn */
+@media (min-width: 500px){
+    .rightMostNavBtn{
+        margin-right : 1em;
+    }
+}
+
+
+
+
+/*fb signup button*/
+
+#fbWarningDiv{
+	display: none;
+}
+
+
+
+/*navbar ends*/
+/*wrapper*/
+
+#wrapper{
+	background-color:#101010;
+	height: 30em;
+	margin-top: -1.5em;
+	color:white;
+}
+
+#wrapperText{
+	font-size: 46px;
+	padding-top: 10px;
+}
+
+#one{
+		background-color:#101010;
+		color:white;
+}
+
+/*wrapper* ends/
+
+/*header*/
+
+#header{
+	padding: 1px;
+	padding-bottom: 1em;
+	margin-top: 2.5em;
+}
+
+#header button{
+	width: 9em;
+}
+
+@media(min-width:400px){
+	.headerBtn{
+		padding: 0.2em 2em;
+	}
+}
+
+@media(max-width:1000px){
+	#header h1{
+		font-size:1.6em;
+	}
+}
+
+/*When Logged in*/	/*div that indicates course name */
+#courseIndicatorDiv{
+	float: left; 
+	margin-top: -4.9em;
+}
+
+#courseIndicatorCol{
+	background-color: #232121;
+	color: white; 
+	border-top-right-radius: 2px; 
+	border-bottom-right-radius: 2px; 
+}
+
+
+/*yesBtn*/
+/* this controls the table boxes which appears when yes option is clicked*/
+.yesBox{
+	width:4em;
+	margin-right:6px;
+	color:black;
+}
+
+/*noBtn*/
+.noBox{
+	width:6em;
+	border-color: #141517;
+	color:black;
+}
+
+
+/*header ends*/
+
+/*tables*/
+
+.table input{
+	color:black;
+}
+
+.table-striped>thead>tr{
+   background-color: #141517;
+   color:white;
+ }
+.table-striped>tbody>tr:nth-child(odd)>td{
+   background-color: #141517;
+   color:white;
+ }
+ .table-striped>tbody>tr:nth-child(even)>td{
+   background-color: #141517;
+   color:white;
+ }
+ 
+.table{
+	color:white;
+	border-radius: 5px;
+	margin: auto;
+    float: center;
+}
+
+.rowRight{
+	 text-align:left;
+}
+
+.rowLeft{
+	text-align:left;
+}
+
+/*assignment table*/
+
+#assignmentTableDiv{
+	display: none;
+}
+
+#assignmentTable{
+    /*display:inline-block;*/
+	/*width:42%;*/
+	float:center;
+	font-size: 12px;
+	table-layout: fixed;
+	  
+}
+
+#assignmentTable tr td:nth-child(2){
+    width:100%;
+}
+
+#assignmentTable td{
+	overflow:hidden;
+    word-wrap: break-word;
+    width: 20em;
+    /*padding:0px; */
+	border-width:0px; 
+	/*margin:0px; */
+	 border-collapse: collapse;
+}
+
+#assignmentTable th tr td:nth-child(1){
+    width:10%;
+}
+
+.assignmentNameBox{
+	width:80%;
+}
+
+#addRowBtn{
+
+}
+
+.addBtn{
+	color:black;
+	width:2em;
+	height:2em;
+	margin: 1em 0em;
+	border-radius:100%;
+	background-color:#5bc0de;
+}
+/*grade table*/
+
+#gradeTable{
+    display:inline-block;
+	width:105.5%;
+	margin-left:-2.7%;
+	float:left;
+}
+
+
+/*result div*/
+.resultBox{
+	margin-top:1em;
+	align:left;
+	width:4em;
+	 border-width:2px;	
+	 border-style:groove;
+}
+
+#resultDiv{
+	display:block;
+	padding: 1px;
+	padding-bottom: 1em;
+	text-align:left;
+
+	width:80%;
+	float:left;	
+}
+
+
+/*tables ends*/
+
+
+
+/*footer*/
+
+.footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	/* Set the fixed height of the footer here */
+	height: 55px;
+	background-color: #868484;	
+}
+
+#confirmSavedIcon{
+	color: #5cb85c;
+	display: none;
+	padding-left: 1.5em;
+}
+
+#saveBtnDiv{
+	margin-top: 2em;
+	height: 3.5em;
+}
+
+.sharethis-inline-share-buttons{
+	margin-top: 0.5em;
+}
+
+/*footer ends*/
+
+/*MODALS*/
+
+.modal{
+		width: 25em;
+		margin:auto;
+	}
+	
+@media(max-width: 500px)
+{
+	.modal{
+		font-size: 12px;
+		width: 25em;
+	}
+}
+
+/*social modal*/
+
+.socialDiv{
+	background-color: #395185;
+	margin-bottom: 30px;
+}
+
+ .modalLogo{
+  	 width: 2em; 
+  	 height: 2em; 
+  	 border-radius: 1em;
+  }
+
+
+.modalFormBtn{
+	height: 1.7em;
+	text-align: center; 
+	line-height: 4px;
+}
+
+
+
+/*login modal ends*/
+
+/*signup modal*/
+
+
+/*signup modal ends*/
+
+.modalCancelBtn{
+	margin-right: 1em;
+}
+
+
+/*.modal-xl{
+	width: 90%;
+	max-width:1200px;
+}*/
+
+/*provookeRegoModal*/
+/*@media (min-width: 768px) {
+  .modal-xl{
+    width: 90%;
+   max-width:1200px;
+   background-color: #d9edf7;
+  }
+}*/
+
+/*MODALS ENDS*/
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+{% extends "../baseGeneric.html" %}
+
+{% block content %}
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<div class="container">
+		{% if messages %}
+		<div class="row">
+			<div class="col-xs-6 col-xs-offset-3">	
+			    {% for message in messages %}
+			    <p{% if message.tags %} class="alert alert-danger"{% endif %}>{{ message }}</p>
+			    {% endfor %}
+			</div>
+		</div>
+
+		{% endif %}
+
+		<!-- show this div if there is no course for user -->
+		{% if courses|length < 1 %}
+		<div class="row">
+			<div class="col-xs-6 col-xs-offset-3">
+				<p  class="alert alert-info">No Course added yet. <button  id="addCourseBtn" class="btn-primary navbar-btn addBtn" onclickdata-title="Add Row" data-placement="left" data-target="#courseRegoModal" data-toggle="modal" style="float:right; margin-top: -0.2em;">+</button></p>
+			</div>
+		</div>
+		
+		<!-- show this div aka table if theres at least 1 course for user -->
+		{% else %}
+		<div class="row">
+		<!-- cols for padding -->
+			<div class="col-xs-2 col-sm-4"></div>
+			<div class="col-xs-8 col-sm-4" style="color:black;">
+				<table class="table table-sm table-striped table-hover" id="courseTable">
+				 <thead class="thead-default">
+						<tr>
+							<th class="col-xs-1 col-sm-1 ">#</th>
+							<th class="col-xs-3 col-sm-3">Course Name</th>
+							<th class="col-xs-2 col-sm-1"></th>
+						</tr>
+					</thead>
+				  <tbody>
+				   	{% for c in courses %}
+				    <tr>
+						<td><b> {{ forloop.counter }} </b></td>
+						<td><a id="courseName{{ forloop.counter }}" href="/user/courseView/{{ c.slug }}">{{c}}</a></td>
+						<td>
+							<a href="/user/deleteCourse/{{ c.slug }}/"><button class="btn btn-danger btn-xs courseDeleteBtn" id="courseDeleteBtn{{ forloop.counter }}" data-title="Delete" data-placement="top" data-toggle="tooltip"><span class="glyphicon glyphicon-trash"></span></button></a>
+						</td>
+				    </tr>
+				    {% endfor %}
+				  </tbody>
+				</table>
+				<button  id="addCourseBtn" class="btn-primary navbar-btn addBtn" onclickdata-title="Add Row" data-placement="left" data-target="#courseRegoModal" data-toggle="modal">+</button>
+			</div>
+			{% endif %}
+			<!-- cols for padding -->
+			<div class="col-xs-2 col-sm-4"></div>
+		</div>
+	</div>
+
+	{% include 'userApp/includes/courseRego.html' %}
+
+{% endblock %}	

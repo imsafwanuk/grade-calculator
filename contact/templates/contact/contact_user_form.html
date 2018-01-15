@@ -1,0 +1,6 @@
+<form method='POST' action=''>{% csrf_token %}
+	<input type="text" name="email"/>
+	<input type="text" name="message"/>
+			<input type='submit' value='Send'/>
+			<input type="hidden" name="next" value= "{{ next }}"/>
+</form>

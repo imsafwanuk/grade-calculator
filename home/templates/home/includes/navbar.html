@@ -1,0 +1,52 @@
+<!--navbar-->
+		 <nav class="navbar-wrapper navbar-fixed-top" id="loginNavBar">
+			<div class="navbar navbar-inverse navbar-static-top">
+				<div class="container-fluid">
+					<a class="navbar-brand" href="{% url 'userHome' %}"><i class="glyphicon glyphicon-education"></i> Grade Calculator<span class="sr-only">(current)</span></a>
+
+					<div class="navbar-header">
+					  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>  
+						<span class="icon-bar"></span>  
+						<span class="icon-bar"></span>
+					  </button>
+					</div>
+					
+					<div class="collapse navbar-collapse">
+						<ul class="nav navbar-nav navbar-left">
+							<li class="nav-item">
+								<a class="navbar-brand" href="{% url 'basicInstruction' %}">Instructions</a>
+							</li>
+							<li class="nav-item">
+								<a class="navbar-brand" href="/about">About</a>
+							</li>
+							<li class="nav-item">
+								<a class="navbar-brand" href="/contact">Contact</a>
+							</li>
+							{% if user.is_authenticated %}
+							<li class="nav-item">
+								<a class="navbar-brand" href="{% url 'userCourses' %}">Courses</a>
+							</li>
+							{% endif %}
+						</ul>
+						<ul class="nav navbar-nav navbar-right">
+						{% if not user.is_authenticated %}
+							<button id ="loginBtn" class="btn btn-primary navbar-btn" data-target="#loginModal" data-toggle="modal"><i class="glyphicon glyphicon-log-in"></i> Login</button>
+							
+							<a href="#"><button id ="signupBtn" class="btn btn-success navbar-btn rightMostNavBtn" data-target="#signupModal" data-toggle="modal"><i class="glyphicon glyphicon-resize-small"></i> SignUp</button></a>
+						{% else %}
+							<!-- if user auth then show logout and namme -->
+							<a id="userName" class="navbar-brand" href="{% url 'userProfile' %}"><i class="glyphicon glyphicon-user"></i> {{user.username}}</a>
+							<a href="{% url 'authLogout' %}">
+								<button id ="logoutBtn" class="btn btn-primary navbar-btn rightMostNavBtn"><i class="glyphicon glyphicon-log-out"></i> Logout</button>
+							</a>
+						{% endif %}
+						 </ul>
+					</div>
+			 	</div>	  
+			</div>
+		</nav>
+		
+
+

@@ -1,0 +1,58 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	    <!-- Required meta tags always come first -->
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width = device-width, initial-scale=1.0">
+	    <meta http-equiv="x-ua-compatible" content="ie=edge">
+		<title>Grade Calculator</title>
+	    <!-- Bootstrap CSS -->
+			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+			<link rel="stylesheet" href=" {% static 'home/css/po.css' %}">
+		 <!-- jQuery first, then Tether, then Bootstrap JS. -->
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha384-3ceskX3iaEnIogmQchP8opvBy3Mi7Ce34nWjpBIwVTHfGYWQS9jwHDVRnpKKHJg7" crossorigin="anonymous"></script>
+			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+			<script type="text/javascript" src="http://jquery-ui.googlecode.com/svn/tags/1.8rc3/ui/jquery-ui.js"></script>
+			<script src=" {% static 'home/js/ghp.js' %}"></script>
+			<!-- font awesome -->
+			<script src="https://use.fontawesome.com/48e4f1c04e.js"></script>
+			<!-- You can use Open Graph tags to customize link previews.
+			Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+		<!-- 	<meta property="og:url"           content="http://localhost:8000/home/"/>
+			<meta property="og:type"          content="Educative"/>
+			<meta property="og:title"         content="Grade Calculator"/>
+			<meta property="og:description"   content="Hey baby"/> -->
+			<!-- <meta property="og:image"         content="http://www.your-domain.com/path/image.jpg" /> -->
+<script type="text/javascript" src="http://platform-api.sharethis.com/js/sharethis.js#property=5895e6b35cdd16001274026d&product=inline-share-buttons"></script>
+
+  	</head>
+ 	<body>
+ 	<!-- Load Facebook SDK for JavaScript -->
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+
+ 	
+ 	<!-- navbar -->
+		{% include 'home/includes/navbar.html' %}
+
+	<!-- start modal windows -->
+  		{% include 'home/includes/modalConnect.html' %}
+
+ 	<!-- block -->
+	 	{% block content %}
+
+
+		{% endblock %}	
+
+	<!-- page footer -->
+		{% include 'home/includes/demoFooter.html' %}
+
+	</body>
+	</html>

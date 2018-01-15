@@ -1,0 +1,13 @@
+
+{% load crispy_forms_tags %}
+
+
+<h1>w;mklasklcds;ckmas</h1>
+	<form method='POST' action=''>{% csrf_token %}
+		{{formLogin|crispy}}
+			<input type='submit' value='Login' />
+			<input type="hidden" name="next" value= "{{ next }}"/>
+	</form>
+	<div>
+		<!-- {{username}} -->
+	</div>

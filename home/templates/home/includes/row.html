@@ -1,0 +1,199 @@
+<!--row for tables-->
+	<div class="container">
+		<div class = "row">
+			<div class="col-xs-12 col-sm-6" id="assignmentTableDiv">
+				<table class="table table-striped table-responsive" id="assignmentTable">
+					<thead class="thead-default">
+						<tr>
+							<th class="col-xs-1 col-md-0.5 ">#</th>
+							<th class="col-xs-3 col-md-2.5">Assignment Name</th>
+							<th class="col-xs-4 col-md-4">Achieved <b>/</b> Total Marks</th>
+							<th class="col-xs-2 col-md-2">Grade %</th>
+							<th class="col-xs-2 col-md-2">Weight %</th>
+							<th class="col-xs-2 col-md-1"></th>
+						</tr>
+					</thead>
+					<tbody>
+					{% if assignment_list|length > 0 %}
+						{% for assignment in assignment_list %}
+							{% if forloop.counter <= 1 %}
+								<tr>
+									<td><b>{{ assignment.assignmentNumber }}</b></td>
+									<td>
+										<input class="assignmentNameBox" type="text" onClick="this.select()" placeholder="'assignment1'" value="{% if not assignment.assignmentName == None %}{{ assignment.assignmentName }}{% endif %}"></input>
+									</td>
+									<td>
+										<input class="noBox rowMarks noBox{{ assignment.assignmentNumber }}" type="text" placeholder="13" value="{% if not assignment.achieved == None %}{{ assignment.achieved }}{% endif %}"></input>
+											<b> / </b>
+										<input class="noBox rowMarks noBox{{ assignment.assignmentNumber }}" type="text" placeholder="15" value="{% if not assignment.totalMark == None %}{{ assignment.totalMark }}{% endif %}"></input>
+									</td>
+									<td>
+										<input class="noBox rowGrade noBox{{ assignment.assignmentNumber }}" type="text" placeholder="86.6"  onClick="this.select();" onblur="checkGrade()" value="{% if not assignment.grade == None %}{{ assignment.grade }}{% endif %}"></input>
+									</td>
+									<td>
+										<input class="noBox rowWeight noBox{{ assignment.assignmentNumber }}" type="text" placeholder="5" onClick="this.select()" onblur="chcekWeight()" value="{% if not assignment.weight == None %}{{ assignment.weight }}{% endif %}"></input>
+									</td>
+									<td>
+										<button class="btn btn-danger btn-xs assignmentDeleteBtn" data-title="Delete" data-placement="top" data-toggle="tooltip"><span class="glyphicon glyphicon-trash"></span></button>
+									</td>
+								</tr>
+							{% else %}
+								<tr>
+									<td><b>{{ assignment.assignmentNumber }}</b></td>
+									<td>
+										<input class="assignmentNameBox" type="text" onClick="this.select()" value="{% if not assignment.assignmentName == None %}{{ assignment.assignmentName }}{% endif %}"></input>
+									</td>
+									<td>
+										<input class="noBox rowMarks noBox{{ assignment.assignmentNumber }}" type="text" value="{% if not assignment.achieved == None %}{{ assignment.achieved }}{% endif %}"></input>
+											<b> / </b>
+										<input class="noBox rowMarks noBox{{ assignment.assignmentNumber }}" type="text" value="{% if not assignment.totalMark == None %}{{ assignment.totalMark }}{% endif %}"></input>
+									</td>
+									<td>
+										<input class="noBox rowGrade noBox{{ assignment.assignmentNumber }}" type="text" onClick="this.select();" onblur="checkGrade()" value="{% if not assignment.grade == None %}{{ assignment.grade }}{% endif %}"></input>
+									</td>
+									<td>
+										<input class="noBox rowWeight noBox{{ assignment.assignmentNumber }}" type="text" onClick="this.select()" onblur="chcekWeight()" value="{% if not assignment.weight == None %}{{ assignment.weight }}{% endif %}"></input>
+									</td>
+									<td>
+										<button class="btn btn-danger btn-xs assignmentDeleteBtn" data-title="Delete" data-placement="top" data-toggle="tooltip"><span class="glyphicon glyphicon-trash"></span></button>
+									</td>
+								</tr>
+							{% endif %}
+						{% endfor %}
+					{% else %}
+						<tr>
+							<td><b>1</b></td>
+							<td>
+								<input class="assignmentNameBox" type="text" placeholder=" 'assignment1'"></input>
+							</td>
+							<td>
+								<input class="noBox rowMarks noBox1" type="text" placeholder="13" ></input>
+									<b> / </b>
+								<input class="noBox rowMarks noBox1" type="text" placeholder="15" ></input>
+							</td>
+							<td>
+								<input class="noBox rowGrade noBox1" type="text" placeholder="86.6" onblur="checkGrade()" onClick="this.select();"></input>
+							</td>
+							<td>
+								<input class="noBox rowWeight noBox1" type="text" placeholder="5" onClick="this.select()" onblur="chcekWeight()"></input>
+							</td>
+							<td>
+								<button class="btn btn-danger btn-xs assignmentDeleteBtn" data-title="Delete" data-placement="top" data-toggle="tooltip"><span class="glyphicon glyphicon-trash"></span></button>
+							</td>
+						</tr>
+						<tr>
+							<td><b>2</b></td>
+							<td>
+								<input class="assignmentNameBox" type="text" ></input>
+							</td>
+							<td>
+								<input class="noBox rowMarks noBox2" type="text"></input>
+									<b> / </b>
+								<input class="noBox rowMarks noBox2" type="text" ></input>
+							</td>
+							<td>
+								<input class="noBox rowGrade noBox2" type="text" onClick="this.select()" onblur="checkGrade()" ></input>
+							</td>
+							<td>
+								<input class="noBox rowWeight noBox2" type="text"  onClick="this.select()" onblur="chcekWeight()"></input>
+							</td>
+							<td>
+								<button class="btn btn-danger btn-xs assignmentDeleteBtn" data-title="Delete" data-placement="top" data-toggle="tooltip"><span class="glyphicon glyphicon-trash"></span></button>
+							</td>
+						</tr>
+						<tr>
+							<td><b>3</b></td>
+							<td>
+								<input class="assignmentNameBox" type="text" ></input>
+							</td>
+							<td>
+								<input class="noBox rowMarks noBox3" type="text" ></input>
+									<b> / </b>
+								<input class="noBox rowMarks noBox3" type="text" ></input>
+							</td>
+							<td>
+								<input class="noBox rowGrade noBox3" type="text" onClick="this.select()" onblur="checkGrade()" ></input>
+							</td>
+							<td>
+								<input class="noBox rowWeight noBox3" type="text"  onClick="this.select()" onblur="chcekWeight()" ></input>
+							</td>
+							<td>
+								<button class="btn btn-danger btn-xs assignmentDeleteBtn" data-title="Delete" data-placement="top" data-toggle="tooltip"><span class="glyphicon glyphicon-trash"></span></button>
+							</td>	
+						</tr>
+					{% endif %}
+						
+	            	</tbody>
+				</table>
+				<button  id="addRowBtn" class="addBtn" onclickdata-title="Add Row" data-placement="left" data-toggle="tooltip">+</button>
+				
+			</div>
+			<!-- if assignment table goes away -->
+			<div class="col-xs-3 noAssignmentDiv">	</div>
+
+			<div class="col-xs-12 col-sm-6" id="gradeTableDiv">
+				<table class="table table-striped table-responsive">
+					<tbody>
+						<!--current grade-->
+						{% if not user.is_authenticated %}
+							<tr>
+								<td class="rowLeft">Current grade</td>	<td class="rowRight"><input type="text" id="currentGrade" class="yesBox" oninput="checkGradeTable()"> %</td>
+							</tr>
+							<!--desired grade-->
+							<tr>
+								<td class="rowLeft">Desired grade</td>	<td class="rowRight"><input type="text" id="desiredGrade" class="yesBox" oninput="checkGradeTable()"> %</td>
+							</tr>
+							<!--Weigth of Final-->
+							<tr>
+								<td class="rowLeft">Weigth of Final</td>	<td class="rowRight"><input type="text" id="finalWeight" class="yesBox" oninput="checkGradeTable()"> %</td>
+							</tr>
+							<!--Total Final Marks-->
+							<tr>
+								<td class="rowLeft">Total Final Marks</td>	<td class="rowRight"><input type="text" id="finalMark" class="yesBox"  oninput="checkGradeTable()"> marks</td>
+							</tr>
+						{% else %}
+						<!--current grade-->
+							<tr>
+								<td class="rowLeft">Current grade</td>	<td class="rowRight"><input type="text" id="currentGrade" class="yesBox" oninput="checkGradeTable()" value="{% if not grade_data.currentGrade == None %}{{ grade_data.currentGrade }}{% endif %}"> %</td>
+							</tr>
+							<!--desired grade-->
+							<tr>
+								<td class="rowLeft">Desired grade</td>	<td class="rowRight"><input type="text" id="desiredGrade" class="yesBox" oninput="checkGradeTable()" value="{% if not grade_data.desiredGrade == None %}{{ grade_data.desiredGrade }}{% endif %}"> %</td>
+							</tr>
+							<!--Weigth of Final-->
+							<tr>
+								<td class="rowLeft">Weigth of Final</td>	<td class="rowRight"><input type="text" id="finalWeight" class="yesBox" oninput="checkGradeTable()" value="{% if not grade_data.finalWeight == None %}{{ grade_data.finalWeight }}{% endif %}"> %</td>
+							</tr>
+							<!--Total Final Marks-->
+							<tr>
+								<td class="rowLeft">Total Final Marks</td>	<td class="rowRight"><input type="text" id="finalMark" class="yesBox"  oninput="checkGradeTable()" value="{% if not grade_data.finalMark == None %}{{ grade_data.finalMark }}{% endif %}"> marks</td>
+							</tr>
+						{% endif %}
+						
+					</tbody>
+				</table>
+				<div id="resultDiv" >
+					</br>
+					<span id="resultText1" class="resultTexts"><input class="resultBox" id="resultBox1" type="text" readonly="readonly"></input> % 		required in final exam<!-- <span id="resultWeightSpan"></span> --></span>
+					</br>
+					<span id="resultText1" class="resultTexts"><input class="resultBox" id="resultBox2" type="text" readonly="readonly"></input>  marks	 required in final exam</span>
+				</div>
+			</div>	<!-- end of table div -->
+
+			
+			<!-- if assignment table goes away -->
+			<div class="col-xs-3 noAssignmentDiv"> </div>
+		</div>
+	</div>
+	{% if user.is_authenticated %}
+	<div class="container" id="saveBtnDiv">
+		<div class="row">
+			<div class="col-xs-12">
+				<!-- <i class="fa-li fa fa-2x fa-spinner fa-pulse" aria-hidden="true"></i> -->
+				<i class="fa fa-li fa-2x fa-check-circle-o" id="confirmSavedIcon" aria-hidden="true"></i>
+				<button  id="saveBtn" onclick="saveBtnListner()" class="btn btn-secondary btn-success btn-group-justified">Save</button>	
+			</div>
+		</div>
+	</div>
+	
+	{% endif %}

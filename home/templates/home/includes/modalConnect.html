@@ -1,0 +1,149 @@
+{% load crispy_forms_tags %}
+<!-- start modal windows -->
+{% load staticfiles %}
+<!-- login modal -->
+		<div id="loginModal" class="modal fade" data-backdrop="static" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-dialog modal-sm" role="document">
+				<div class="modal-content">
+					<!-- modal header -->
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">Login</h4>
+					</div>
+					<!-- modal body -->
+					<div class="modal-body" id="loginBodyDiv">
+						<div class="container-fluid">
+							<!-- Social Login -->
+							<div class="socialLogin">
+								<div class="socialDiv" id="fbLoginLink">
+									<p style="color: white;"><img class="modalLogo" src="{% static 'home/images/fbLogo.png' %}"> Login with Facebook</p>
+								</div>
+							</div>
+							<div id="loginFormDiv">
+								<form action="{% url 'login' %}" method='POST'>{% csrf_token %}
+									{{formLogin|crispy}}
+									<input type="submit" id="loginSubmit" class="hidden" value='Login'/>
+								</form>
+							</div>
+						</div>
+					</div> <!-- .modal-body -->
+					<div class="modal-body" id="fbLoginWarningDiv">
+						<div class="container-fluid">
+							<h5>Haven't Sign up yet!</h5>
+							<div class="alert alert-warning">
+								<p>Looks like you haven't signed up yet.</p>
+								<p>You can sign up with Facebook and then login.</p>
+							</div>
+						</div>
+					</div> <!-- .mod -->
+					<!-- modal footer -->
+					<div class="modal-footer" id="loginFooterDiv">
+						<div class="row">
+							<!-- for btns -->
+							<div class="col-xs-12">					
+								<label class="btn btn-primary formLabelBtn" id="postLoginBtn" name="formLogin" for="loginSubmit">Login</label>
+								<button class="btn btn-secondary modalCancelBtn modalFormBtn" data-dismiss="modal">Cancel</button>
+							</div>	<!-- end btns -->
+						</div>	<!-- end row -->
+
+						<div class="row">
+							<hr>
+							<div class="col-xs-12">
+								<a class="pull-left" href="{% url 'forgotPasswordPage' %}" >Forgot Password</a>
+							</div>
+						</div>	<!-- end row -->
+					</div>
+					<!-- footer for warning -->
+					<div class="modal-footer" id="loginWarnginFooterDiv">
+						<div class="row">
+							<!-- for btns -->
+							<div class="col-xs-12">					
+								<button class="btn btn-secondary modalCancelBtn modalFormBtn" data-dismiss="modal">Cancel</button>
+							</div>	<!-- end btns -->
+						</div>	<!-- end row -->
+					</div>
+				</div>	<!-- .model-contnet -->
+			</div>	<!-- .modal-dialog -->
+		</div>	<!-- .modal -->
+
+	<!-- signUp modal -->
+		<div id="signupModal" class="modal fade" data-backdrop="static" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-dialog modal-sm" role="document">
+				<div class="modal-content">
+					<!-- modal header -->
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title" id="gridModalLabel">Sign Up</h4>
+					</div>
+					<!-- modal body -->
+
+					<div class="modal-body" id="mySignupDiv">
+						<div class="container-fluid">
+							<!-- Social Signup -->
+							<div class="socialSignup">
+								<div class="socialDiv" id="">
+									<p  onclick="FBsignup()" style="color: white;"><img class="modalLogo" id="" src="{% static 'home/images/fbLogo.png' %}"> Sign Up with Facebook</p>
+								</div>
+							</div> 
+							<div class="signupFormDiv">
+								<form action="{% url 'signUp' %}" method='POST' >{% csrf_token %}
+									{{ formSignup|crispy }}
+									<input id="signupSubmit" class='btn btn-default hidden' type='submit' value='Submit' />
+								</form>
+							</div>
+						</div>
+					</div> <!-- .modal-body -->
+					<!-- modal footer -->
+					<div class="modal-footer">
+						<label class="btn btn-primary formLabelBtn " id="postSignupBtn" name="formLogin" for="signupSubmit">Sign Up</label>
+						<button type="button" class="btn btn-secondary modalCancelBtn modalFormBtn" data-dismiss="modal">Cancel</button>
+					</div>
+				</div>	<!-- .model-contnet -->
+			</div>	<!-- .modal-dialog -->
+		</div>	<!-- .modal -->
+
+		<!-- fb signup modal -->
+		<div id="fbSignupModal" class="modal fade" data-backdrop="static" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-dialog modal-sm" role="document">
+				<div class="modal-content">
+					<!-- modal header -->
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">Facebook Sign Up</h4>
+					</div>
+					<!-- modal body -->
+					<div class="modal-body" id="fbSignupDiv">
+						<div class="container-fluid">
+							<h5>Almost there</h5>
+								<form method='POST' action='' >{% csrf_token %}
+									{{ formFb|crispy }}
+								</form>
+						</div>
+					</div> <!-- .modal-body -->
+					<!-- fb warning user div -->
+					<div class="modal-body" id="fbWarningDiv">
+						<div class="container-fluid">
+							<h5>Try logging in</h5>
+							<div class="alert alert-warning">
+								<p>You have already signed up.</p>
+								<p>Just log in.</p>
+							</div>
+						</div>
+					</div> <!-- .modal-body -->
+
+					<!-- modal footer -->
+					<div class="modal-footer" id="fbSigupFooter">
+						<div class="row">
+							<!-- for btns -->
+							<div class="col-xs-12">					
+								<label class="btn btn-primary formLabelBtn" id="fbPostSignupBtn">Sign Up</label>
+								<button class="btn btn-secondary modalCancelBtn modalFormBtn" data-dismiss="modal">Cancel</button>
+							</div>	<!-- end btns -->
+							<!-- for text -->
+							<div class="col-xs-12">
+							</div>	<!-- end text -->
+						</div>	<!-- end row -->
+					</div>
+				</div>	<!-- .model-contnet -->
+			</div>	<!-- .modal-dialog -->
+		</div>	<!-- .modal -->

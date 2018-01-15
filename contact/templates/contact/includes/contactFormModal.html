@@ -1,0 +1,38 @@
+{% load crispy_forms_tags %}
+<!-- start modal windows -->
+<!-- login modal -->
+		<div id="contactFormModal" class="modal fade" data-backdrop="static" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-dialog modal-sm" role="document">
+				<div class="modal-content">
+					<!-- modal header -->
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">Contact Us</h4>
+					</div>
+					<!-- modal body -->
+					<div class="modal-body">
+						<div class="container-fluid">
+							<div id="contactFormDiv">
+								<form method='POST' action=''>{% csrf_token %}
+									<!-- <input type="text" name="email" id="email"/> -->
+									{{contactForm|crispy}}
+									<input type='submit' value='Send' class="hidden" id="contactFormSubmit" />
+								</form>
+							</div>
+						</div>
+					</div> <!-- .modal-body -->
+					<!-- modal footer -->
+					<div class="modal-footer">
+						<div class="row">
+							<!-- for text -->
+							<!-- for btns -->
+							<div class="col-xs-12">				
+								<label class="btn btn-primary formLabelBtn" id="contactFormBtn" for="contactFormSubmit">Send</label>
+								<button class="btn btn-secondary modalCancelBtn modalFormBtn" data-dismiss="modal">Cancel</button>
+							</div>	<!-- end btns -->
+
+						</div>	<!-- end row -->
+					</div>
+				</div>	<!-- .model-contnet -->
+			</div>	<!-- .modal-dialog -->
+		</div>	<!-- .modal -->

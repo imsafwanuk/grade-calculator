@@ -1,0 +1,10 @@
+Django==1.10.2
+argparse==1.2.1
+dj-database-url==0.4.2
+django-crispy-forms==1.6.1
+django-hosts==2.0
+gunicorn==19.6.0
+static3==0.7.0
+whitenoise==3.3.0
+wsgiref==0.1.2
+psycopg2==2.6.2
